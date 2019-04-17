@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
