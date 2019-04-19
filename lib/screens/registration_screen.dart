@@ -52,7 +52,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 //Do something with the user input.
               },
               decoration: InputDecoration(
-                hintText: 'Enter yourpassword',
+                hintText: 'Enter your password',
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(

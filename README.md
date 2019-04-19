@@ -26,6 +26,7 @@ We’re going to build a modern messaging app where users can sign up and log in
 - How to use Firebase Cloud Firestore to store and retrieve data on the fly.
 
 
+
 >This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
 
 ![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
