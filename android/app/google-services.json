@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "789844500207",
+    "firebase_url": "https://flash-chat-ed126.firebaseio.com",
+    "project_id": "flash-chat-ed126",
+    "storage_bucket": "flash-chat-ed126.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789844500207:android:e3956bce7e0a6e94",
+        "android_client_info": {
+          "package_name": "co.ketanchoyal.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789844500207-nj5abiklo4sn0s938gdold119sfmatq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw4_ay2BbFyYvqD_8UKEMxtpdqp5vjA_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789844500207-nj5abiklo4sn0s938gdold119sfmatq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
