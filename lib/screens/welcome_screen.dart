@@ -1,3 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
+import 'package:flash_chat/screens/login_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/reusable_rounded_button.dart';
 import 'login_screen.dart';
@@ -20,6 +24,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   void initState() {
     super.initState();
 
+    setState(() {
+      checkUser();
+    });
+    
     animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 1)
@@ -41,10 +49,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
   }
 
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
+  checkUser() async {
+    var user = await FirebaseAuth.instance.currentUser();
+    if (user != null ){
+
+      setState(() {
+        Navigator.pushReplacementNamed(context, ChatScreen.id);
+      });
+    }
   }
 
   @override
@@ -99,10 +111,28 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   Navigator.pushNamed(context, RegistrationScreen.id);
                 },
               ),
+            ),
+            Hero(
+              tag: 'mobile',
+              transitionOnUserGestures: true,
+              child: ReusableRoundedButtonWidget(
+                fillColor: Colors.deepOrange,
+                buttonLabel: 'Login With Mobile',
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginWithMobile.id);
+                },
+              ),
             )
           ],
         ),
       ),
     );
   }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
 }

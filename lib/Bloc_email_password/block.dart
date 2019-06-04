@@ -20,7 +20,7 @@ class Bloc extends Object with Validators implements BaseBloc{
   Stream<bool> get submitCheck => Observable.combineLatest2(email, password, (e, p) => true);
 
   @override
-  void dispose() {
+  dispose() {
     _emailController?.close();
     _passwordController?.close();
   }
@@ -28,5 +28,5 @@ class Bloc extends Object with Validators implements BaseBloc{
 }
 
 abstract class BaseBloc {
-  void dispose();
+  dispose();
 }
