@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>212354012391-p90u9lmojtuppb7796jk3eaqivbju9hr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.212354012391-p90u9lmojtuppb7796jk3eaqivbju9hr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_qtyj3pCIlNR2p73z4y1JYNzyLPmM0HY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>212354012391</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.josenaves.flashchat</string>
+	<key>PROJECT_ID</key>
+	<string>chatflutter-b9c52</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatflutter-b9c52.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:212354012391:ios:f66fa9c84a999947</string>
+	<key>DATABASE_URL</key>
+	<string>https://chatflutter-b9c52.firebaseio.com</string>
+</dict>
+</plist>
