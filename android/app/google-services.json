@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "212354012391",
+    "firebase_url": "https://chatflutter-b9c52.firebaseio.com",
+    "project_id": "chatflutter-b9c52",
+    "storage_bucket": "chatflutter-b9c52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212354012391:android:f66fa9c84a999947",
+        "android_client_info": {
+          "package_name": "com.josenaves.flashchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212354012391-307k4ovdl1s32qr0hq0sk1li6fgpmh4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOgL8qP7PN8SZIb6YnG3gzsqB02YE5lwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212354012391-307k4ovdl1s32qr0hq0sk1li6fgpmh4e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "212354012391-p90u9lmojtuppb7796jk3eaqivbju9hr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.josenaves.flashchat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
