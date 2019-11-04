@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "574870714272",
+    "firebase_url": "https://flash-chat-8bc51.firebaseio.com",
+    "project_id": "flash-chat-8bc51",
+    "storage_bucket": "flash-chat-8bc51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574870714272:android:7c2a27b0cb92f17c38d6c5",
+        "android_client_info": {
+          "package_name": "co.fastektechonology.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574870714272-90hblrdtp2oo086g3mceucvhc70en42l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwMnuLDC2zCZSYsPjVcZ-_zaBzlBk4fQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574870714272-90hblrdtp2oo086g3mceucvhc70en42l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
