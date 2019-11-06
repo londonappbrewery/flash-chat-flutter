@@ -86,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                   catch (e){
                     print(e);
+                    Text(e, style: TextStyle(color: Colors.red),);
                   }
 
                 },
