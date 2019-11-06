@@ -1,4 +1,4 @@
-import 'package:flash_chat/screens/channels.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
@@ -11,14 +11,14 @@ FirebaseUser loggedInUser;
 
 
 //chat stream beginning
-class ChatScreen extends StatefulWidget {
-  static String id = 'chat_screen';
+class Channel extends StatefulWidget {
+  static String id = 'channels';
 
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  _ChannelState createState() => _ChannelState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChannelState extends State<Channel> {
   final _auth = FirebaseAuth.instance;
 
   final messageTextController = TextEditingController();
@@ -57,19 +57,20 @@ class _ChatScreenState extends State<ChatScreen> {
               child: Text(
                 loggedInUser.email,
                 style: TextStyle(
-                    color: Colors.blueAccent
+                  color: Colors.blueAccent
                 ),
               ),
 
             ),
 
             ListTile(
-              title: Text('Channels'),
+              title: Text('Prayers'),
 
               onTap: (){
-                Navigator.pushNamed(context, Channel.id);
+                Navigator.pushNamed(context, ChatScreen.id);
               },
-            )
+            ),
+
 
           ],
         ),
@@ -80,7 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                Navigator.pop(context);
+                //Todo add something
               }),
           IconButton(
               icon: Icon(Icons.close),
@@ -89,7 +90,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Navigator.pop(context);
               }),
         ],
-        title: Text('⚡️Chat'),
+        title: Text('⚡️Channel'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
@@ -128,6 +129,19 @@ class _ChatScreenState extends State<ChatScreen> {
                       style: kSendButtonTextStyle,
                     ),
                   ),
+                  FlatButton(
+                    onPressed: () {
+                      messageTextController.clear();
+                      _firestore.collection('churches').add({
+                        'prayers': messageText,
+                        'sender': loggedInUser.email,
+                      });
+                    },
+                    child: Text(
+                      'Prayers',
+                      style: kSendButtonTextStyle,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -154,8 +168,8 @@ class MessageBubble extends StatelessWidget {
           Text(
             sender,
             style: TextStyle(
-              fontSize: 12.0,
-              color: Colors.black45
+                fontSize: 12.0,
+                color: Colors.black45
             ),
           ),
           Material(
@@ -167,67 +181,67 @@ class MessageBubble extends StatelessWidget {
             elevation: 5.0,
             color: isMe ? Colors.blueAccent : Colors.white,
             child:
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                child: Text(
-          '$text',
-                  style: TextStyle(
-                    color: isMe ?Colors.white : Colors.black45,
-                    fontSize: 20.0,
-                  ),
-          ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              child: Text(
+                '$text',
+                style: TextStyle(
+                  color: isMe ?Colors.white : Colors.black45,
+                  fontSize: 20.0,
+                ),
               ),
+            ),
           ),
         ],
       ),
     );
   }
 
-  }
+}
 
 
 
-  class MessageStream extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-      return StreamBuilder<QuerySnapshot>(
-        stream: _firestore.collection('messages').snapshots(),
-        builder: (context, snapshot){
-          if (snapshot.hasData){
-            final messages = snapshot.data.documents.reversed;
-            List<MessageBubble> messageBubbles = [];
-            for (var message in messages){
-              final messageText = message.data['text'];
-              final messageSender = message.data['sender'];
+class MessageStream extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: _firestore.collection('churches').snapshots(),
+      builder: (context, snapshot){
+        if (snapshot.hasData){
+          final messages = snapshot.data.documents.reversed;
+          List<MessageBubble> messageBubbles = [];
+          for (var message in messages){
+            final messageText = message.data['prayers'];
+            final messageSender = message.data['sender'];
 
-              final currentUser = loggedInUser.email;
+            final currentUser = loggedInUser.email;
 
-              final messageBubble = MessageBubble(
-                text: messageText,
-                sender: messageSender,
-                isMe: currentUser == messageSender,
+            final messageBubble = MessageBubble(
+              text: messageText,
+              sender: messageSender,
+              isMe: currentUser == messageSender,
 
-              );
-              messageBubbles.add(messageBubble);
-            }
-            return Expanded(
-              child: ListView(
-                reverse: true,
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-                children: messageBubbles,
-              ),
             );
-          } else if (!snapshot.hasData){
-            return Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.red,
-              ),
-            );
+            messageBubbles.add(messageBubble);
           }
-        },
-      );
-    }
+          return Expanded(
+            child: ListView(
+              reverse: true,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+              children: messageBubbles,
+            ),
+          );
+        } else if (!snapshot.hasData){
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      },
+    );
   }
+}
 
 
 /*void getMessages() async {

@@ -1,3 +1,4 @@
+import 'package:flash_chat/screens/channels.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
@@ -16,6 +17,7 @@ class FlashChat extends StatelessWidget {
         'login_screen': (context)=> LoginScreen(),
         'registration_screen': (context)=> RegistrationScreen(),
         'chat_screen': (context)=> ChatScreen(),
+        'channels': (context)=> Channel(),
       },
     );
   }
