@@ -14,6 +14,7 @@ class FlashChat extends StatelessWidget {
         textTheme: TextTheme(
           body1: TextStyle(color: Colors.black54),
         ),
+        hintColor: Colors.black54,
       ),
       home: WelcomeScreen(),
     );
