@@ -1,5 +1,6 @@
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'screens/chat_screen.dart';
 import 'screens/login_screen.dart';
@@ -11,6 +12,9 @@ void main() => runApp(FlashChat());
 class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(systemNavigationBarColor: Color(0xff8c52ff)),
+    );
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         textTheme: TextTheme(
