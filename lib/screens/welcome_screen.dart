@@ -1,3 +1,4 @@
+import 'package:flash_chat/reusable_widgets.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,19 +24,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 50.0),
-              child: Hero(
-                tag: 'logo',
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Image.asset('images/logo.png'),
-                  height: mq.size.height / 4,
-                ),
-              ),
+              child: ReusableLogo(mq: mq),
             ),
             Padding(
               padding: EdgeInsets.only(top: 50.0, bottom: 50.0),
               child: Text(
-                "Welcome!",
+                'Hello There!',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,
@@ -49,50 +43,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Material(
-                    elevation: 5.0,
-                    borderRadius: BorderRadius.circular(25.0),
-                    color: Colors.white,
-                    child: MaterialButton(
-                      minWidth: mq.size.width / 1.2,
-                      padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                      child: Text(
-                        "Login",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(LoginScreen.id);
-                      },
-                    ),
+                  ReusableMaterialButton(
+                    mq: mq,
+                    labelText: 'Login',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(LoginScreen.id);
+                    },
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 15, 0, 70),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(25.0),
-                      color: Colors.white,
-                      child: MaterialButton(
-                        minWidth: mq.size.width / 1.2,
-                        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                        child: Text(
-                          "Register",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(RegistrationScreen.id);
-                        },
-                      ),
+                    child: ReusableMaterialButton(
+                      mq: mq,
+                      labelText: 'Register',
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(RegistrationScreen.id);
+                      },
                     ),
                   ),
                 ],
