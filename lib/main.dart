@@ -13,7 +13,9 @@ class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(systemNavigationBarColor: Color(0xff8c52ff)),
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Color(0xFFCE265A),
+      ),
     );
     return MaterialApp(
       theme: ThemeData.dark().copyWith(

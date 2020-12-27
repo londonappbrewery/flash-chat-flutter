@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final MediaQueryData mq = MediaQuery.of(context);
     return Scaffold(
-      backgroundColor: Color(0xff8c52ff),
+      backgroundColor: Color(0xFFCE265A),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -44,6 +44,24 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         obscureText: true,
                       ),
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          MaterialButton(
+                            child: Text(
+                              'Forgot Password',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .caption
+                                  .copyWith(color: Colors.white),
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -53,10 +71,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ReusableMaterialButton(
-                        labelText: 'Login',
-                        mq: mq,
-                        onPressed: () {},
+                      Hero(
+                        tag: 'login_button',
+                        child: ReusableMaterialButton(
+                          labelText: 'Login',
+                          mq: mq,
+                          onPressed: () {},
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),

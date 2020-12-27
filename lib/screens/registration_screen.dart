@@ -19,7 +19,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final MediaQueryData mq = MediaQuery.of(context);
 
     return Scaffold(
-      backgroundColor: Color(0xff8c52ff),
+      backgroundColor: Color(0xFFCE265A),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(

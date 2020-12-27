@@ -11,13 +11,14 @@ class ReusableMaterialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 5.0,
+      shadowColor: Color(0xFFCE265A),
       borderRadius: BorderRadius.circular(25.0),
       color: Colors.white,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          'Login',
+          labelText,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
@@ -33,7 +34,7 @@ class ReusableMaterialButton extends StatelessWidget {
 
 class ReusableTextFormField extends StatelessWidget {
   ReusableTextFormField(
-      {this.controller, this.labelText, this.type, this.obscureText});
+      {this.controller, this.labelText, this.type, this.obscureText = false});
 
   final TextEditingController controller;
   final String labelText;

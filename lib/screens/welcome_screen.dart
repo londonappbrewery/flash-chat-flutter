@@ -16,7 +16,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
     return Scaffold(
-      backgroundColor: Color(0xff8c52ff),
+      //backgroundColor: Color(0xff8c52ff),
+      backgroundColor: Color(0xFFCE265A),
       body: Padding(
         padding: const EdgeInsets.all(36.0),
         child: Column(
@@ -32,7 +33,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 'Hello There!',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 25,
+                  fontSize: 35,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -43,12 +44,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  ReusableMaterialButton(
-                    mq: mq,
-                    labelText: 'Login',
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(LoginScreen.id);
-                    },
+                  Hero(
+                    tag: 'login_button',
+                    child: ReusableMaterialButton(
+                      mq: mq,
+                      labelText: 'Login',
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(LoginScreen.id);
+                      },
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 15, 0, 70),
