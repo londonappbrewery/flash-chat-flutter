@@ -11,29 +11,29 @@ class ReusableMaterialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 5.0,
-      shadowColor: Color(0xFFCE265A),
+      shadowColor: const Color(0xFFCE265A),
       borderRadius: BorderRadius.circular(25.0),
       color: Colors.white,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
-        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        onPressed: onPressed,
         child: Text(
           labelText,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20.0,
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
-        onPressed: onPressed,
       ),
     );
   }
 }
 
 class ReusableTextFormField extends StatelessWidget {
-  ReusableTextFormField(
+  const ReusableTextFormField(
       {this.controller, this.labelText, this.type, this.obscureText = false});
 
   final TextEditingController controller;
@@ -47,21 +47,21 @@ class ReusableTextFormField extends StatelessWidget {
       obscureText: obscureText,
       controller: controller,
       keyboardType: type,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
       ),
       cursorColor: Colors.white,
       decoration: InputDecoration(
-        focusedBorder: UnderlineInputBorder(
+        focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Colors.white,
           ),
         ),
         labelText: labelText,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Colors.white,
         ),
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.white,
         ),
       ),
@@ -70,7 +70,7 @@ class ReusableTextFormField extends StatelessWidget {
 }
 
 class ReusableLogo extends StatelessWidget {
-  ReusableLogo({this.mq});
+  const ReusableLogo({this.mq});
 
   final MediaQueryData mq;
 
@@ -80,15 +80,15 @@ class ReusableLogo extends StatelessWidget {
       tag: 'logo',
       child: Container(
         alignment: Alignment.center,
-        child: Image.asset('images/logo.png'),
         height: mq.size.height / 4,
+        child: Image.asset('images/logo.png'),
       ),
     );
   }
 }
 
 class ReusableBottomRow extends StatelessWidget {
-  ReusableBottomRow({this.label, this.buttonLabel, this.onPressed});
+  const ReusableBottomRow({this.label, this.buttonLabel, this.onPressed});
   final String label;
   final String buttonLabel;
   final void Function() onPressed;

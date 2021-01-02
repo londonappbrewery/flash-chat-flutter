@@ -28,7 +28,7 @@ linter:
     prefer_double_quotes: false
 
     # Good packages document everything
-    public_member_api_docs: fasle
+    public_member_api_docs: false
 
     # Blindly follow the Flutter code style, which prefers types everywhere
     always_specify_types: true

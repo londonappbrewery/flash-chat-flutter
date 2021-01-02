@@ -10,20 +10,20 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _repasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _repasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mq = MediaQuery.of(context);
 
     return Scaffold(
-      backgroundColor: Color(0xFFCE265A),
+      backgroundColor: const Color(0xFFCE265A),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(36),
+          padding: const EdgeInsets.all(36),
           child: Container(
             height: mq.size.height,
             child: Column(
@@ -33,9 +33,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   mq: mq,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 10),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ReusableTextFormField(
                         labelText: 'Username',
@@ -62,7 +61,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 150.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       ReusableMaterialButton(
@@ -70,7 +68,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         mq: mq,
                         onPressed: () {},
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                       ),
                       ReusableBottomRow(

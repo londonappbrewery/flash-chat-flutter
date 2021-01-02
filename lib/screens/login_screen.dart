@@ -10,17 +10,17 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mq = MediaQuery.of(context);
     return Scaffold(
-      backgroundColor: Color(0xFFCE265A),
+      backgroundColor: const Color(0xFFCE265A),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(36),
+          padding: const EdgeInsets.all(36),
           child: Container(
             height: mq.size.height,
             child: Column(
@@ -30,9 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   mq: mq,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       ReusableTextFormField(
                         controller: _emailController,
@@ -44,13 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         obscureText: true,
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(2.0),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           MaterialButton(
+                            onPressed: () {},
                             child: Text(
                               'Forgot Password',
                               style: Theme.of(context)
@@ -58,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   .caption
                                   .copyWith(color: Colors.white),
                             ),
-                            onPressed: () {},
                           ),
                         ],
                       ),
@@ -68,7 +67,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 150.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Hero(
@@ -79,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {},
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                       ),
                       ReusableBottomRow(

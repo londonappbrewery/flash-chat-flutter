@@ -12,15 +12,14 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () {
                 //Implement logout functionality
               }),
         ],
-        title: Text('⚡️Chat'),
+        title: const Text('⚡️Chat'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
@@ -31,7 +30,6 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: TextField(
@@ -45,7 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     onPressed: () {
                       //Implement send functionality.
                     },
-                    child: Text(
+                    child: const Text(
                       'Send',
                       style: kSendButtonTextStyle,
                     ),
