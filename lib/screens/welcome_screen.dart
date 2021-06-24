@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
+
+  static String id = 'welcome_screen';
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -21,11 +26,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Container(
                   child: Image.asset('images/logo.png'),
                   height: 60.0,
+
                 ),
                 Text(
-                  'Flash Chat',
+                  'ay Safe',
                   style: TextStyle(
-                    fontSize: 45.0,
+                    fontSize: 70.0,
                     fontWeight: FontWeight.w900,
                   ),
                 ),

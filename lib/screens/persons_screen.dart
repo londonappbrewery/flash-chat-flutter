@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 
-class ChatScreen extends StatefulWidget {
+class PersonsScreen extends StatefulWidget {
 
-  static String id = 'chat_screen';
+  static String id = 'persons_screen';
 
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  _PersonsScreenState createState() => _PersonsScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+
+class _PersonsScreenState extends State<PersonsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +18,16 @@ class _ChatScreenState extends State<ChatScreen> {
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              style: kAppBarIcon,
+              icon: Image.asset('images/logo.png'),
+              //icon: Icon(Icons.close),
               onPressed: () {
+
                 //Implement logout functionality
               }),
         ],
-        title: Text('⚡️Chat'),
-        backgroundColor: Colors.lightBlueAccent,
+        title: Text('Personen'),
+        backgroundColor: Colors.lightBlueAccent.shade700,
       ),
       body: SafeArea(
         child: Column(
@@ -41,15 +45,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         //Do something with the user input.
                       },
                       decoration: kMessageTextFieldDecoration,
-                    ),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      //Implement send functionality.
-                    },
-                    child: Text(
-                      'Send',
-                      style: kSendButtonTextStyle,
                     ),
                   ),
                 ],
