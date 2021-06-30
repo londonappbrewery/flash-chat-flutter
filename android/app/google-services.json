@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1094937185014",
+    "project_id": "test-182ec",
+    "storage_bucket": "test-182ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094937185014:android:42f90a4fa7c4cd9eed7ad7",
+        "android_client_info": {
+          "package_name": "nl.galileoacademy.daysafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094937185014-t6sa901gebh92unogb5fggbn0i4dda2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtwIl1c6gLNSyfUsd7yOhPzQMtu35JgXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094937185014-t6sa901gebh92unogb5fggbn0i4dda2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
