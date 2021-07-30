@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  animated_text_kit: ^4.2.1
 
 dev_dependencies:
   flutter_test:
