@@ -4,16 +4,54 @@ import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  static const String welcomId='welcom';
+  static const String welcomId = 'welcom';
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+      // upperBound: 60.0,
+    );
+
+    //this is curved animation
+    // animation = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+
+    // animation.addStatusListener((status) {
+    //   if (animation.isCompleted)
+    //     controller.reverse(from: 1.0);
+    //   else if (animation.isDismissed) controller.forward();
+    // });
+
+    animation=ColorTween(begin: Colors.blueGrey ,end: Colors.white).animate(controller);
+
+    controller.forward();
+
+    controller.addListener(() {
+      setState(() {});
+      // print(controller.value);
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
