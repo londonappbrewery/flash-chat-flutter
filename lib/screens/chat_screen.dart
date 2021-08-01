@@ -4,8 +4,6 @@ import 'package:flash_chat/components/message_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 
-final _fireStore = FirebaseFirestore.instance.collection('message');
-
 class ChatScreen extends StatefulWidget {
   static const String chatId = 'chat';
 
@@ -18,6 +16,8 @@ class _ChatScreenState extends State<ChatScreen> {
   User loggedInUser;
   String messageText;
   final messageController = TextEditingController();
+  final _fireStore = FirebaseFirestore.instance.collection('message');
+
 
   void getCurrentUser() {
     try {
@@ -58,6 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: <Widget>[
             MessageStream(
               _fireStore,
+              loggedInUser.email,
             ),
             Container(
               decoration: kMessageContainerDecoration,
