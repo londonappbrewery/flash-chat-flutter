@@ -22,6 +22,9 @@ const kMessageContainerDecoration = BoxDecoration(
 
 const kInputTextDecoration = InputDecoration(
   hintText: 'Text',
+  hintStyle: TextStyle(
+    color: Colors.black,
+  ),
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
