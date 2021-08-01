@@ -13,7 +13,7 @@ class MessageStream extends StatelessWidget {
     return Expanded(
       child: StreamBuilder(
         //.orderBy("time", descending: true)
-        stream: _fireStore.snapshots(),
+        stream: _fireStore.orderBy('time',descending: true).snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Text('something went wrong !');
