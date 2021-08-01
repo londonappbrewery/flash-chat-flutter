@@ -54,6 +54,30 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Expanded(
+              child: StreamBuilder(
+                stream: _fireStore.snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Text('Loading !');
+                  }
+                  var messages = snapshot.requireData;
+                  return ListView.builder(
+                    padding: EdgeInsets.all(10.0),
+                    itemCount: messages.size,
+                    itemBuilder: (context, index) {
+                      return Text(
+                        '${messages.docs[index]['sender']} write ${messages.docs[index]['text']}',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -70,7 +94,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      _fireStore.add({'sender':loggedInUser.email,'text':messageText});
+                      _fireStore.add(
+                          {'sender': loggedInUser.email, 'text': messageText});
                     },
                     child: Text(
                       'Send',
