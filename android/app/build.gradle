@@ -1,4 +1,4 @@
-def localProperties = new Properties()
+def localProperties = Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
@@ -57,4 +57,7 @@ flutter {
 
 dependencies {
     implementation 'androidx.multidex:multidex:2.0.0'
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
 }
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
