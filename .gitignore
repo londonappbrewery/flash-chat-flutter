@@ -9,6 +9,7 @@
 .history
 .svn/
 
+
 # IntelliJ related
 *.iml
 *.ipr
@@ -26,6 +27,7 @@
 .pub-cache/
 .pub/
 /build/
+.lock
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -61,6 +63,7 @@
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+.sh
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
