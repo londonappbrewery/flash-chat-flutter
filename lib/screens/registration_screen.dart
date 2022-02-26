@@ -22,9 +22,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('hello'),
-      ),
+      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: load,
@@ -44,8 +42,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               SizedBox(
-                height: 48.0,
+                height: 4.0,
               ),
+              
               TextField(
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
                   keyboardType: TextInputType.emailAddress,
@@ -71,7 +70,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   decoration: kButtonDecoration.copyWith(
                       hintText: 'Enter your Password')),
               SizedBox(
-                height: 24.0,
+                height: 6.0,
               ),
               NavigateButton(
                   title: 'Register',
@@ -81,18 +80,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       load = true;
                     });
 
+                    final UserCredential newUser =
+                        await _authObject.createUserWithEmailAndPassword(
+                            email: email, password: pwd);
+
                     try {
-                      final newUser =
-                          await _authObject.createUserWithEmailAndPassword(
-                              email: email, password: pwd);
                       if (newUser != null) {
+                        
                         Navigator.pushNamed(context, ChatScreen.id);
                       }
                       setState(() {
                         load = false;
                       });
                     } catch (e) {
-                      log(e);
+                      log(e.toString());
                       log('failed to add account');
                       load = true;
                     }

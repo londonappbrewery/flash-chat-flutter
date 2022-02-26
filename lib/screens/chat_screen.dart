@@ -33,6 +33,7 @@ class _ChatScreenState extends State<ChatScreen> {
         loggedInUser = currentUser;
         log(loggedInUser.email);
         log("init");
+        log(loggedInUser.displayName.toString());
       }
     } catch (e) {
       log(e);
@@ -55,11 +56,11 @@ class _ChatScreenState extends State<ChatScreen> {
               icon: Icon(Icons.close),
               onPressed: () {
                 _authObject.signOut();
-                Navigator.pop(context);
+                Navigator.popUntil(context, ModalRoute.withName('/'));
                 //Implement logout functionality
               }),
         ],
-        title: Text('⚡️Chat'),
+        title: Text('⚡️ World Chat'),
         backgroundColor: Colors.blue,
         elevation: 10,
       ),
@@ -92,6 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       messageController.clear();
                       scrollController.jumpTo(1);
                       _firestoreObject.collection('messages').add({
+                        'name': loggedInUser.displayName,
                         'text': msg,
                         'sender': loggedInUser.email,
                         'timestamp': FieldValue.serverTimestamp()
