@@ -1,11 +1,44 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/screens/login_screen.dart';
+import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flash_chat/navigate_button.dart';
+// import 'dart:developer';
 
 class WelcomeScreen extends StatefulWidget {
+  static const String id = '/';
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation animate;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+        duration: Duration(milliseconds: 1000), vsync: this, upperBound: 1);
+    animate = CurvedAnimation(parent: controller, curve: Curves.easeInCubic);
+
+    // animate = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+    // animate.addListener(() {
+    //   log('${controller.value}, ${animate.value}');
+    //   setState(() {});
+    // });
+    // controller.forward();
+    // controller.addStatusListener((status) {
+    //   if (controller.isCompleted) {
+    //     controller.reverse(from: 1);
+    //   }
+    //   if (controller.isDismissed) {
+    //     controller.forward();
+    //   }
+    // });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,58 +51,48 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('images/logo.png'),
-                  height: 60.0,
-                ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
+                Hero(
+                  tag: 'logo',
+                  child: Container(
+                    height:
+                        100, //animate is applied over controller that's why we're not using controller.value(linear progress)
+                    child: Image.asset('images/logo.png'),
                   ),
+                ),
+                AnimatedTextKit(
+                  isRepeatingAnimation: false,
+                  animatedTexts: [
+                    TypewriterAnimatedText('Flash Chat',
+                        curve: Curves.easeOut,
+                        speed: Duration(milliseconds: 150),
+                        textStyle: TextStyle(
+                          fontSize: 45.0,
+                          fontWeight: FontWeight.w900,
+                        ))
+                  ],
                 ),
               ],
             ),
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to login screen.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            NavigateButton(
+              color: Colors.lightBlueAccent,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                //Go to login screen.
+              },
+              title: 'Log In',
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to registration screen.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
-            ),
+            NavigateButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+                //Go to registration screen.
+              },
+              title: 'Register',
+              color: Colors.blueAccent,
+            )
           ],
         ),
       ),
