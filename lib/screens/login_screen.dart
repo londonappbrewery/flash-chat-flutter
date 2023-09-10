@@ -4,7 +4,10 @@ class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
-
+//What is Android Embedding? This is simply the Android
+// code that is responsible for integrating Flutter within
+// an Android application
+//embeddig=integration
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
