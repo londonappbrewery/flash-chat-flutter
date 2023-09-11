@@ -14,7 +14,7 @@ class FlashChat extends StatelessWidget {
         textTheme: TextTheme(
         ),
       ),
-      home: LoginScreen(),
+      home: WelcomeScreen(),
     );
   }
 }
