@@ -9,6 +9,15 @@
 ## Our Goal
 
 The objective of this tutorial is to learn how to incorporate Firebase into our Flutter apps. We'll be using Firebase Cloud Firestore as well as the Firebase authentication package to equip our app with a cloud-based NoSQL database and secure authentication methods. 
+Tutorial Objective: Leveraging Firebase for Enhanced Flutter Apps
+
+Welcome to this comprehensive tutorial where we will dive into the integration of Firebase into your Flutter applications. Our primary goal is to empower you with the knowledge and skills to seamlessly incorporate Firebase Cloud Firestore and Firebase authentication into your apps.
+
+Firebase Cloud Firestore:
+We will explore Firebase Cloud Firestore, a real-time cloud-based NoSQL database, which will enable your app to store and retrieve data with lightning speed and efficiency. Say goodbye to the complexities of managing your app's data storage and hello to a scalable and user-friendly cloud solution.
+
+Firebase Authentication:
+In addition, we will delve into the world of secure authentication using the Firebase authentication package. You will learn how to implement robust and user-friendly authentication methods, ensuring the safety and privacy of your users' data.
 
 
 ## What you will create
