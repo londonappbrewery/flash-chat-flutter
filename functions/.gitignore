@@ -1,0 +1,7 @@
+.env
+node_modules/
+<<<<<<< Updated upstream
+*.local
+=======
+*.local
+>>>>>>> Stashed changes
